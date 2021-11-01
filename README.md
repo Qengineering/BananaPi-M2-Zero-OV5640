@@ -12,9 +12,10 @@
 - Download the image (**5.1 GByte!**) from our [Gdrive](https://drive.google.com/file/d/19gT6Okn-u_mnab_e0JZHuNyq_EDz9DJI/view?usp=sharing) site. 
 - Flash the image on the SD card with the [Imager](https://www.raspberrypi.org/software/) or [balenaEtcher](https://www.balena.io/etcher/).
 - Insert the SD card in your Banana Pi and enjoy.
+- Login: pi
 - Password: ***pass1234***
-- Read the instructions below!<br/>
-![output image]( https://qengineering.eu/images/BananaPiM2zero.webp )<br/>
+- Read the instructions below!<br/><br/>
+![output image]( https://qengineering.eu/images/BananaPiM2zero_2.webp )<br/>
 ------------
 
 ## Good to know.
@@ -31,7 +32,13 @@
 
 First, we would like to thank **Wim van ‘t Hoog** for the many hours of work rebuilding the Linux device tree on the Banana Pi to get the OV5640 drivers installed.
 Please visit his [website](https://wvthoog.nl/nanopi-ov5640-camera/), if you want more information on the subject. Also, if you like to get the Cedrus encoder (used for FFmpeg and GStreamer) up and running. Note, Wim is using the NanoPi with the Allwinner H3, instead of the BananaPi with the H2+.<br/><br/>
-![output image]( https://qengineering.eu/images/OV5640.webp )<br/><br/>
+![output image]( https://qengineering.eu/images/OV5640_2.webp )<br/><br/>
+#### You **cannot** use a RaspberryPi camera! The OV56**40** has a parallel output port, while the RPi OV56**47** has a MIPI-lane interface.<br/>
+There are several connector layouts of the OV5640 camera. Buy one specifically for the BPi, like [this one](https://nl.aliexpress.com/item/32660117929.html).<br/><br/>
+Before using the ov5640 camera, it must be initialized.<br/>
+It is done by the command `$ sudo media-ctl --device /dev/media1 --set-v4l2`<br/>
+The command allows you to set the resolution, framerate, compression and other parameters. You can issue a new command at any time to change the parameters. You can also set the initialization during boot, for example by placing the command in `/etc/rc.local`.<br/>
+The camera is located at `/dev/video1`, not `/dev/video0` where the cedrus engine lives.
 
 
 <!--
