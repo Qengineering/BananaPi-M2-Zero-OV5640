@@ -1,18 +1,18 @@
-# BananaPi-M2-Zero-OV5640
-# Jetson Nano DNN image
-![output image]( https://qengineering.eu/images/SDcard32GBJetson.webp )<br/>
-## A Jetson Nano image with OpenCV, TensorFlow and Pytorch
+# BananaPi M2 zero + OV5640
+
+## A Banan Pi image with OV5640 camera and OpenCV
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
 
 ------------
 
 ## Installation.
 
-- Get a 32 GB (minimal) SD-card which will hold the image. 
-- Download the image (**9.6 GByte!**) from our [Gdrive](https://drive.google.com/file/d/1CSSN2VJiks-wP7aRan-ZQZYynLcBcWsa/view?usp=sharing) site. 
+- Get a 16 GB (minimal) SD-card which will hold the image. 
+- Download the image (**5.1 GByte!**) from our [Gdrive](https://drive.google.com/file/d/19gT6Okn-u_mnab_e0JZHuNyq_EDz9DJI/view?usp=sharing) site. 
 - Flash the image on the SD card with the [Imager](https://www.raspberrypi.org/software/) or [balenaEtcher](https://www.balena.io/etcher/).
-- Insert the SD card in your Jetson Nano and enjoy.
-- Password: ***jetson***
+- Insert the SD card in your Banana Pi and enjoy.
+- Password: ***pass1234***
+- Read the instructions below!
 
 ------------
 
