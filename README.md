@@ -13,8 +13,8 @@
 - Flash the image on the SD card with the [Imager](https://www.raspberrypi.org/software/) or [balenaEtcher](https://www.balena.io/etcher/).
 - Insert the SD card in your Banana Pi and enjoy.
 - Password: ***pass1234***
-- Read the instructions below!
-
+- Read the instructions below!<br/>
+![output image]( https://qengineering.eu/images/BananaPiM2zero.webp )<br/>
 ------------
 
 ## Good to know.
@@ -24,9 +24,17 @@
 * We limited the screen resolution to 1280x720 to avoid flickering.
 * If you require extra space, you can delete the ~/opencv and /usr/src (1.9 GB) folder from the SD card. There are no longer needed since all libraries are in the /usr directory. The /usr/src keeps all the code required for building the Linux kernel.
 * Use a tool like [GParted](https://gparted.org/) `sudo apt-get install gparted` to expand the image to larger SD cards.<br/><br/>
-<!--
+
 ------------
 
+## OV5640.
+
+First, we would like to thank **Wim van ‘t Hoog** for the many hours of work rebuilding the Linux device tree on the Banana Pi to get the OV5640 drivers installed.
+Please visit his [website](https://wvthoog.nl/nanopi-ov5640-camera/), if you want more information on the subject. Also, if you like to get the Cedrus encoder (used for FFmpeg and GStreamer) up and running. Note, Wim is using the NanoPi with the Allwinner H3, instead of the BananaPi with the H2+.<br/><br/>
+![output image]( https://qengineering.eu/images/OV5640.webp )<br/><br/>
+
+
+<!--
 ## Pre-installed frameworks.
 
 - [JetPack](https://developer.nvidia.com/embedded/jetpack) 4.6.0
