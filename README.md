@@ -1,6 +1,7 @@
 # BananaPi M2 zero + OV5640
 
 ## A Banan Pi image with OV5640 camera and OpenCV
+![output image]( https://qengineering.eu/images/armbian.png )<br/><br/>
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
 
 ------------
@@ -16,12 +17,14 @@
 
 ------------
 
+## Good to know.
+
+* The Banana Pi M2 zero has only 512 MByte RAM onboard, which limits the performance even with the quad-core A7 Allwinner H2+. Don't expect high-resolution live video, although we managed to transfer a 1280x720 UDP stream at 30 FPS using GStreamer.
+* This Armbian OS is the first we tested that keeps the CPU temperature fairly cold. All other BPi operating systems heats the CPU at 65°C or higher, even when idle.
+* We limited the screen resolution to 1280x720 to avoid flickering.
+* If you require extra space, you can delete the ~/opencv and /usr/src (1.9 GB) folder from the SD card. There are no longer needed since all libraries are in the /usr directory. The /usr/src keeps all the code required for building the Linux kernel.
+* Use a tool like [GParted](https://gparted.org/) `sudo apt-get install gparted` to expand the image to larger SD cards.<br/><br/>
 <!--
-## Tips.
-
-* If you are in need of extra space, you can delete the opencv and the opencv_contrib folder from the SD card. There are no longer needed since all libraries are placed in the /usr/ directory.
-* Use a tool like [GParted](https://gparted.org/) `sudo apt-get install gparted` to expand the image to larger SD cards. We recommend a minimum of 64 GB. Deep learning simply requires a lot of space.<br/><br/>
-
 ------------
 
 ## Pre-installed frameworks.
