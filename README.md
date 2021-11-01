@@ -1,6 +1,6 @@
-# BananaPi M2 zero + OV5640
+# Banana Pi M2 zero + OV5640
 
-## A Banan Pi image with OV5640 camera and OpenCV
+## A Banana Pi image with OV5640 camera and OpenCV
 ![output image]( https://qengineering.eu/images/armbian.png )<br/><br/>
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
 
@@ -31,51 +31,47 @@
 ## OV5640.
 
 First, we would like to thank **Wim van ‘t Hoog** for the many hours of work rebuilding the Linux device tree on the Banana Pi to get the OV5640 drivers installed.
-Please visit his [website](https://wvthoog.nl/nanopi-ov5640-camera/), if you want more information on the subject. Also, if you like to get the Cedrus encoder (used for FFmpeg and GStreamer) up and running. Note, Wim is using the NanoPi with the Allwinner H3, instead of the BananaPi with the H2+.<br/><br/>
+Please visit his [website](https://wvthoog.nl/nanopi-ov5640-camera/), if you want more information on the subject. Also, if you like to get the Cedrus encoder (used for FFmpeg and GStreamer) up and running. Note, Wim is using the Nano Pi with the Allwinner H3, instead of the Banana Pi with the H2+.<br/><br/>
 ![output image]( https://qengineering.eu/images/OV5640_2.webp )<br/><br/>
-#### You **cannot** use a RaspberryPi camera! The OV56**40** has a parallel output port, while the RPi OV56**47** has a MIPI-lane interface.<br/>
-There are several connector layouts of the OV5640 camera. Buy one specifically for the BPi, like [this one](https://nl.aliexpress.com/item/32660117929.html).<br/><br/>
-Before using the ov5640 camera, it must be initialized.<br/>
-It is done by the command `$ sudo media-ctl --device /dev/media1 --set-v4l2`<br/>
+#### You **cannot** use a Raspberry Pi camera! The OV56**40** has a parallel output port, while the RPi OV56**47** has a MIPI-lane interface.<br/>
+There are several connector layouts of the OV5640 camera. Buy one specifically for the Banana Pi, like [this one](https://nl.aliexpress.com/item/32660117929.html).<br/><br/>
+Before using the ov5640 camera, it must be initialized. It is done by the command `$ sudo media-ctl --device /dev/media1 --set-v4l2`<br/>
 The command allows you to set the resolution, framerate, compression and other parameters. You can issue a new command at any time to change the parameters. You can also set the initialization during boot, for example by placing the command in `/etc/rc.local`.<br/>
-The camera is located at `/dev/video1`, not `/dev/video0` where the cedrus engine lives.
-
-
-<!--
-## Pre-installed frameworks.
-
-- [JetPack](https://developer.nvidia.com/embedded/jetpack) 4.6.0
-- [OpenCV](https://qengineering.eu/deep-learning-with-opencv-on-raspberry-pi-4.html) 4.5.3
-- [TensorFLow](https://qengineering.eu/install-tensorflow-2.4.0-on-raspberry-64-os.html) 2.4.1
-- [TensorFlow Addons](https://qengineering.eu/install-tensorflow-2.4.0-on-raspberry-64-os.html) 0.13.0-dev
-- [Pytorch](https://qengineering.eu/install-pytorch-on-raspberry-pi-4.html) 1.8.1
-- [TorchVision](https://qengineering.eu/install-pytorch-on-raspberry-pi-4.html) 0.9.1
-- [LibTorch](https://qengineering.eu/install-pytorch-on-raspberry-pi-4.html) 1.8.1 
-- [ncnn](https://qengineering.eu/install-ncnn-on-jetson-nano.html) 20210720
-- [MNN](https://qengineering.eu/install-mnn-on-jetson-nano.html) 1.2.1
-- [JTOP](https://github.com/rbonghi/jetson_stats) 3.1.1 
-
-Tensorflow 2.5 and above require CUDA 11. CUDA version 11 cannot be installed on a Jetson Nano due to incompatibility between the GPU and low-level software at this time, hence Tensorflow 2.4.1. Only when NVIDIA releases a JetPack with CUDA 11 will we be able to upgrade Tensorflow.
-
-![output image]( https://qengineering.eu/images/Software_Jetson.png )<br/><br/>
-![output image]( https://qengineering.eu/images/JTOP_jetson.png )
+The camera is located at `/dev/video1`, not `/dev/video0` where the cedrus engine lives.<br/>
+Some examples
+```
+$ sudo media-ctl --device /dev/media1 --set-v4l2 '"ov5640 2-003c":0[fmt:YUYV8_2X8/1280x720]'
+or
+$ sudo media-ctl --device /dev/media1 --set-v4l2 '"ov5640 2-003c":0[fmt:YUYV8_2X8/640x480]'
+```
+With framerate:
+```
+$ sudo media-ctl --device /dev/media1 --set-v4l2 '"ov5640 2-003c":0[fmt:YUYV8_2X8/640x480@1/30]'
+or
+$ sudo media-ctl --device /dev/media1 --set-v4l2 '"ov5640 2-003c":0[fmt:YUYV8_2X8/1280x720@1/15]'
+```
+### GStreamer
+You can use GStreamer. However, be aware of the limited resources on the Banana Pi M2 zero.<br/>
+Streaming to screen:
+```
+$ gst-launch-1.0 v4l2src device=/dev/video1 ! video/x-raw, width=640, height=480, framerate=30/1 ! videoconvert ! autovideosink
+```
+UDP streaming to another computer. (192.168.178.84 is the address of the recieving host)
+```
+$ gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=-1 ! video/x-raw, width=1280, height=720, framerate=30/1 ! videoconvert ! jpegenc ! rtpjpegpay ! udpsink host=192.168.178.84 port=5200
+```
+### OpenCV
+Once the camera is set up, you can receive the video stream in OpenCV for further processing.<br/>
+We've added an example to the SD image. It is almost identical to the OpenCV camera example for the Raspberry Pi.<br/>
+See our [webpage](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html) for more information.<br/><br/>
+![output image]( https://qengineering.eu/images/BananaStreet.webp )<br/><br/>
 
 ------------
 
-## OpenCV + TensorFlow.
+## Pre-installed frameworks.
 
-Importing both TensorFlow and OpenCV in Python can throw the error: _cannot allocate memory in static TLS block_.<br/>
-This behaviour only occurs on an aarch64 system and is caused by the OpenMP memory requirements not being met.<br/>
-For more information, see GitHub ticket [#14884](https://github.com/opencv/opencv/issues/14884).<br/>
+- [OpenCV Lite](https://qengineering.eu/install-opencv-lite-on-raspberry-pi.html) 4.5.4
+- [Code::Blocks](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html)
 
-![output image](https://qengineering.eu/images/SwapImportOpenCVJetson.webp)
-
-There are a few solutions. The easiest is to import OpenCV at the beginning, as shown above.<br/>
-The other is disabling OpenMP by setting the -DBUILD_OPENMP and -DWITH_OPENMP flags OFF.<br/>
-Where possible, OpenCV will now use the default pthread or the TBB engine for parallelization.<br/>
-We don't recommend it. Not all OpenCV algorithms automatically switch to pthread.<br/>
-Our advice is to import OpenCV into Python first before anything else.<br/>
-
--->
-Under construction
-
+![output image]( https://qengineering.eu/images/MediaBananaPi.webp )<br/><br/>
+![output image]( https://qengineering.eu/images/v4l2.webp )
