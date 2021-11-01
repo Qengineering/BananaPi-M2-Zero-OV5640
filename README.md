@@ -62,8 +62,7 @@ $ gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=-1 ! video/x-raw, wid
 ```
 ### OpenCV
 Once the camera is set up, you can receive the video stream in OpenCV for further processing.<br/>
-We've added an example to the SD image. It is almost identical to the OpenCV camera example for the Raspberry Pi.<br/>
-See our [webpage](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html) for more information.<br/><br/>
+We've added an example to the SD image. It is almost identical to the OpenCV camera example for the Raspberry Pi. See our [webpage](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html) for more information.<br/><br/>
 ![output image]( https://qengineering.eu/images/BananaStreet.webp )<br/><br/>
 
 ------------
