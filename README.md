@@ -16,6 +16,7 @@
 
 ------------
 
+<!--
 ## Tips.
 
 * If you are in need of extra space, you can delete the opencv and the opencv_contrib folder from the SD card. There are no longer needed since all libraries are placed in the /usr/ directory.
@@ -56,4 +57,7 @@ The other is disabling OpenMP by setting the -DBUILD_OPENMP and -DWITH_OPENMP fl
 Where possible, OpenCV will now use the default pthread or the TBB engine for parallelization.<br/>
 We don't recommend it. Not all OpenCV algorithms automatically switch to pthread.<br/>
 Our advice is to import OpenCV into Python first before anything else.<br/>
+
+-->
+Under construction
 
