@@ -112,7 +112,7 @@ cv2.destroyAllWindows()
 
 - [Armbian_21.02.1_Bananapim2zero_buster_current_5.10.12_desktop.img.xz](https://armbian.hosthatch.com/archive/bananapim2zero/archive/)
 - [OpenCV Lite](https://qengineering.eu/install-opencv-lite-on-raspberry-pi.html) 4.5.4
-- [Code::Blocks](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html)
+- [Code::Blocks](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html) 16.01
 
 ![output image]( https://qengineering.eu/images/Banana_OS_2.png )<br/><br/>
 ![output image]( https://qengineering.eu/images/MediaBananaPi.webp )<br/><br/>
