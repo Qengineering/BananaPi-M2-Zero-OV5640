@@ -1,6 +1,6 @@
 # Banana Pi M2 zero + OV5640
 
-## A Banana Pi image with OV5640 camera and OpenCV
+## A Banana Pi image with OV5640 camera, WiringPi and OpenCV
 ![output image]( https://qengineering.eu/images/armbian.png )<br/><br/>
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
 
@@ -65,52 +65,12 @@ Once the camera is set up, you can receive the video stream in OpenCV for furthe
 We've added an example to the SD image. It is almost identical to the OpenCV camera example for the Raspberry Pi. See our [webpage](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html) for more information.<br/><br/>
 ![output image]( https://qengineering.eu/images/BananaStreet.webp )<br/><br/>
 
-------------
-
-### Python 
-Again, you need to initialize the camera beforehand.<br/>
-`$ sudo media-ctl --device /dev/media1 --set-v4l2 '"ov5640 2-003c":0[fmt:YUYV8_2X8/640x480]'`<br/>
-Then you can run this little Python demo program to capture your OV5640.<br/>
-```
-import cv2
-import numpy as np
-
-# Create a VideoCapture object and read from input file
-# If the input is the camera, pass 0 instead of the video file name
-cap = cv2.VideoCapture(1)
-
-# Check if camera opened successfully
-if (cap.isOpened()== False): 
-  print("Error opening video stream or file")
-
-# Read until video is completed
-while(cap.isOpened()):
-  # Capture frame-by-frame
-  ret, frame = cap.read()
-  if ret == True:
-
-    # Display the resulting frame
-    cv2.imshow('Frame',frame)
-
-    # Press Q on keyboard to  exit
-    if cv2.waitKey(25) & 0xFF == ord('q'):
-      break
-
-  # Break the loop
-  else: 
-    break
-
-# When everything done, release the video capture object
-cap.release()
-
-# Closes all the frames
-cv2.destroyAllWindows()
-```
 --------
 
 ## Pre-installed frameworks.
 
 - [Armbian_21.02.1_Bananapim2zero_buster_current_5.10.12_desktop.img.xz](https://armbian.hosthatch.com/archive/bananapim2zero/archive/)
+- [BPI-WiringPi2](https://forum.banana-pi.org/t/banana-pi-m2-zero-wiringpi2/5517/7) 
 - [OpenCV Lite](https://qengineering.eu/install-opencv-lite-on-raspberry-pi.html) 4.5.4
 - [Code::Blocks](https://qengineering.eu/opencv-c-examples-on-raspberry-pi.html) 16.01
 
