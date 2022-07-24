@@ -15,7 +15,42 @@
 - Login: pi
 - Password: ***pass1234***
 - Read the instructions below!<br/><br/>
+
+------------
+
+### Split image.
+
+Because the image is large (5.5 GB), the download may take quite some time. It makes downloading vulnerable.<br/>
+That's why we split the file into smaller chunks. These are more manageable than one huge download.<br/>
+Please download the following 12 files (500 MB each) and place them in one folder.</br>
+- [BananaPi_M2_zero_OV5640.7z.001](https://drive.google.com/file/d/1sEcsguK7ymAknjKK56Fwv1VAeLO4M2jp/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.002](https://drive.google.com/file/d/1Qcl9ElFSOCt0E9v9iCzAKmb1HQv-Ul2U/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.003](https://drive.google.com/file/d/1h8ytekk0tzd3aWJbjXkUYTNrG3meD-Ua/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.004](https://drive.google.com/file/d/1aWZ1u87SOcxqgM4sU1t7sRvgtuzxO-0g/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.005](https://drive.google.com/file/d/1P4PUvnXAqogC9twRKL3ogJ1VumXEkghF/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.006](https://drive.google.com/file/d/1R1rWaP5yrtmfHkhxR4Sp1NE-qY97a3eA/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.007](https://drive.google.com/file/d/1o3Tb2MqQz8Ayakuega1ApcrKQkViCS2X/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.008](https://drive.google.com/file/d/1pK0COokVk5grMYC_taOZg4sJ5g7NVx08/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.009](https://drive.google.com/file/d/1ys7TvsZ38RJ-z9HeEnQbatEsHuiD68yu/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.010](https://drive.google.com/file/d/1CqOTKp8QynT_4q_33CcMJAR6xHVF6L1i/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.011](https://drive.google.com/file/d/15j_NZ65VaSOfZl2O-eq6e5aAITlLUnEU/view?usp=sharing)
+- [BananaPi_M2_zero_OV5640.7z.012](https://drive.google.com/file/d/128drF7RwU5NZi1IQ6076nRT1wvqmmm0A/view?usp=sharing)<br/>
+
+Once you have all the files run
+```
+7z x BananaPi_M2_zero_OV5640.7z.001
+```
+7Z will start extracting the first file (`*.001`) and then automatically the next files in order.</br>
+You will endup with `BananaPi_M2_zero_OV5640.zip`, the original image which you now can flash on a SD card with [Imager](https://www.raspberrypi.org/software/) or [balenaEtcher](https://www.balena.io/etcher/).<br/><br/>
+If you get the error `'7z' is not recognized as an internal or external command, operable program or batch file.` please give the full path to 7z. For instance,
+```
+"C:\Program Files\7-Zip\7z.exe" x BananaPi_M2_zero_OV5640.7z.001
+```
+
+
+
 ![output image]( https://qengineering.eu/images/BananaPiM2zero_2.webp )<br/>
+
 ------------
 
 ## Good to know.
