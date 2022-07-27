@@ -22,7 +22,7 @@
 
 Because the image is large (5.5 GB), the download may take quite some time. It makes downloading vulnerable.<br/>
 That's why we split the file into smaller chunks. These are more manageable than one huge download.<br/>
-Please download the following 12 files (500 MB each) and place them in one folder.</br>
+If you prefer this partial download over one large one, download the following 12 files (500 MB each) and place them in one folder.</br>
 - [BananaPi_M2_zero_OV5640.7z.001](https://drive.google.com/file/d/1sEcsguK7ymAknjKK56Fwv1VAeLO4M2jp/view?usp=sharing)
 - [BananaPi_M2_zero_OV5640.7z.002](https://drive.google.com/file/d/1Qcl9ElFSOCt0E9v9iCzAKmb1HQv-Ul2U/view?usp=sharing)
 - [BananaPi_M2_zero_OV5640.7z.003](https://drive.google.com/file/d/1h8ytekk0tzd3aWJbjXkUYTNrG3meD-Ua/view?usp=sharing)
