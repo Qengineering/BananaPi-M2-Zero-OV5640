@@ -12,7 +12,7 @@
 - Download the image (**5.5 GByte!**) from our [Gdrive](https://drive.google.com/file/d/1oQrsXJ0fXAyKS1lGSZAyrpy-uXZCaG8w/view?usp=sharing) site. 
 - Flash the image on the SD card with the [Imager](https://www.raspberrypi.org/software/) or [balenaEtcher](https://www.balena.io/etcher/).
 - Insert the SD card in your Banana Pi and enjoy.
-- Login: pi
+- Login: ***pi***
 - Password: ***pass1234***
 - Read the instructions below!<br/><br/>
 
