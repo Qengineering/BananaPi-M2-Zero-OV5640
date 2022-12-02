@@ -14,6 +14,7 @@
 - Insert the SD card in your Banana Pi and enjoy.
 - Login: ***pi***
 - Password: ***pass1234***
+- ***Do not*** `$ sudo apt-get upgrade` as the newly installed software will ***remove the OV5640 drivers***!
 - Read the instructions below!<br/><br/>
 
 ------------
@@ -69,7 +70,9 @@ First, we would like to thank **Wim van ‘t Hoog** for the many hours of work r
 Please visit his [website](https://wvthoog.nl/nanopi-ov5640-camera/), if you want more information on the subject. Also, if you like to get the Cedrus encoder (used for FFmpeg and GStreamer) up and running. Note, Wim is using the Nano Pi with the Allwinner H3, instead of the Banana Pi with the H2+.<br/><br/>
 ![output image]( https://qengineering.eu/images/OV5640_2.webp )<br/><br/>
 #### :point_right: You **cannot** use a Raspberry Pi camera! The OV56**40** has a parallel output port, while the RPi OV56**47** has a MIPI-lane interface.<br/>
-:point_right: There are several connector layouts of the OV5640 camera. Buy one specifically for the Banana Pi, like [this one](https://nl.aliexpress.com/item/32660117929.html).<br/><br/>
+#### :point_right: There are several connector layouts of the OV5640 camera. Buy one specifically for the Banana Pi, like [this one](https://nl.aliexpress.com/item/32660117929.html).<br/>
+![output image]( https://qengineering.eu/github/Connectors2.png )<br/>
+With the wrong connector you are facing [issue #6](https://github.com/Qengineering/BananaPi-M2-Zero-OV5640/issues/6).<br/><br/>
 Before using the ov5640 camera, it must be initialized. It is done by the command `$ sudo media-ctl --device /dev/media1 --set-v4l2`<br/>
 The command allows you to set the resolution, framerate, compression and other parameters. You can issue a new command at any time to change the parameters. You can also set the initialization during boot, for example by placing the command in `/etc/rc.local`.<br/>
 The camera is located at `/dev/video1`, not `/dev/video0` where the cedrus engine lives.<br/>
